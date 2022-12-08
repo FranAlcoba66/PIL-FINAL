@@ -12,7 +12,7 @@ const Todo = ({ id, title, description, completeTodo, editTodo, deleteTodo }) =>
     	setTitle(title)
     	setDescription(description)
     }
-    
+
     const handleShow = () => setShow(true);
 
     const editTodoHandler = (title, description) => {
