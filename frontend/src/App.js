@@ -33,6 +33,34 @@ function App() {
 		}
 	}
 
+	const completeTodo = async id => {
+		try {
+			const todo = todos.filter(todo => todo.id === id)[0]
+			todo.status = true
+			await axios.put(`/todo/v1/todo/${id}/`, todo)
+			getTodos()
+		} catch(err) {
+			console.log(err)
+		}
+	}
+
+	const editTodo = async todo => {
+		try {
+			await axios.put(`/todo/v1/todo/${todo.id}/`, todo)
+			getTodos()
+		} catch(err) {
+			console.log(err)
+		}
+	}
+
+	const deleteTodo = async id => {
+		try {
+			await axios.delete(`/todo/v1/todo/${id}/`)
+			getTodos()
+		} catch(err) {
+			console.log(err)
+		}
+	}
 
 	return (
 		<div className='wrapper'>
