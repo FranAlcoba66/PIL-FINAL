@@ -40,10 +40,12 @@ BASE_APPS = [
 
 LOCAL_APPS = [
     'todo',
+    'users.apps.UsersConfig'
 ]
 
 THIRD_APPS = [
 'rest_framework',
+'rest_framework.authtoken'
 ]
 
 INSTALLED_APPS = BASE_APPS + LOCAL_APPS + THIRD_APPS

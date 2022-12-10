@@ -16,7 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from todo.urls import router
+from django.urls import re_path as url
+from rest_framework.authtoken.views import obtain_auth_token
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('todo/v1/',include(router.urls))
+    path('todo/v1/',include(router.urls)),
+    path('users/',include('users.urls')),
+    url(r'^auth/', obtain_auth_token)
 ]
+
